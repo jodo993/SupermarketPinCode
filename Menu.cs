@@ -30,8 +30,12 @@ namespace SupermarketCodeFlashCards
 
         private void flashCardModeButton_Click(object sender, EventArgs e)
         {
+            this.Hide();
+
             FlashCardMode newFlash = new FlashCardMode();
             newFlash.ShowDialog();
+
+            this.Close();
         }
     }
 }

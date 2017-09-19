@@ -21,8 +21,12 @@ namespace SupermarketCodeFlashCards
         {
             if (nameTextBox.Text == "mom")
             {
+                this.Hide();
+
                 Menu newMenu = new Menu();
                 newMenu.ShowDialog();
+
+                this.Close();
             }
             else
             {
