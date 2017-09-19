@@ -17,13 +17,17 @@ namespace SupermarketCodeFlashCards
             InitializeComponent();
         }
 
-        String finalPIN = "";
+        String finalPIN;
         String finalPINtoCheck;
 
+        // Clear current answer
         private void clearButton_Click(object sender, EventArgs e)
         {
             finalPIN = "";
             pinLabel.Text = "";
+
+            correctLabel.Visible = false;
+            wrongLabel.Visible = false;
         }
 
         private void button0_Click(object sender, EventArgs e)
@@ -76,6 +80,7 @@ namespace SupermarketCodeFlashCards
             pinLabel.Text = getFinalPIN("9");
         }
 
+        // Get final pin
         String getFinalPIN(String PIN)
         {
             String currentPIN = finalPIN;
@@ -89,61 +94,48 @@ namespace SupermarketCodeFlashCards
             this.Close();
         }
 
-        int getOption(int option)
-        {
-            // Generate random number from 1 - 3
-            Random randomNumber = new Random();
-
-            // Return deli and misc options
-            if (option == 1)
-            {
-                int deliMisc = randomNumber.Next(90, 95);
-                return deliMisc;
-            }
-            // Return vegetable options
-            else if (option == 2)
-            {
-                int vegetable = randomNumber.Next(100, 259);
-                return vegetable;
-            }
-            // Return fruit options
-            else
-            {
-                int fruit = randomNumber.Next(901, 993);
-                return fruit;
-            }
-        }
-
         private void getButton_Click(object sender, EventArgs e)
         {
+            // Hide labels
             correctLabel.Visible = false;
             wrongLabel.Visible = false;
 
-            Random randomNumber = new Random();
-            int deliVegiFruit = randomNumber.Next(1, 4);
+            // Clear previous entries
+            finalPIN = "";
+            finalPINtoCheck = "";
 
+            // Get a random number to decide which category
+            Random randomNumber = new Random();
+            int deliVegiFruit = randomNumber.Next(1, 5);
             int itemNumber = getOption(deliVegiFruit);
+
+            // Assign item number to string
             finalPINtoCheck = itemNumber.ToString();
 
             if (itemNumber == 90)
             {
                 answerLabel.Text = "Trung Cut Vi";
+                pictureBox.Image = Properties.Resources.quailEggs;
             }
             else if (itemNumber == 91)
             {
                 answerLabel.Text = "Hot Vit Lon";
+                pictureBox.Image = Properties.Resources.ballutEggs;
             }
             else if (itemNumber == 92)
             {
                 answerLabel.Text = "Dau Hu Trang";
+                pictureBox.Image = Properties.Resources.tofuCake;
             }
             else if (itemNumber == 93)
             {
                 answerLabel.Text = "Trung Vit Tuoi";
+                pictureBox.Image = Properties.Resources.duckEggs;
             }
             else if (itemNumber == 94)
             {
                 answerLabel.Text = "Trung Vit Muoi";
+                pictureBox.Image = Properties.Resources.duckEggs;
             }
             else if (itemNumber == 100)
             {
@@ -1064,8 +1056,78 @@ namespace SupermarketCodeFlashCards
             else
             {
                 MessageBox.Show("Click Again.");
+                //recall();
             }
 
+        }
+
+        int getOption(int option)
+        {
+            // Generate random number from 1 - 3
+            Random randomNumber = new Random();
+
+            // Return deli and misc options
+            if (option == 1)
+            {
+                int deliMisc = randomNumber.Next(90, 95);
+                return deliMisc;
+            }
+            // Return vegetable options
+            else if (option == 2)
+            {
+                int vegetable = randomNumber.Next(100, 259);
+                return vegetable;
+            }
+            // Return fruit options
+            else if (option == 3)
+            {
+                int fruit = randomNumber.Next(901, 993);
+                return fruit;
+            } 
+            else
+            {
+                int fourDigits = randomNumber.Next(1, 21);
+                if (fourDigits == 1)
+                    return 4593;
+                else if (fourDigits == 2)
+                    return 9471;
+                else if (fourDigits == 3)
+                    return 9601;
+                else if (fourDigits == 4)
+                    return 9061;
+                else if (fourDigits == 5)
+                    return 9571;
+                else if (fourDigits == 6)
+                    return 9611;
+                else if (fourDigits == 7)
+                    return 9361;
+                else if (fourDigits == 8)
+                    return 9481;
+                else if (fourDigits == 9)
+                    return 9631;
+                else if (fourDigits == 10)
+                    return 9641;
+                else if (fourDigits == 11)
+                    return 9691;
+                else if (fourDigits == 12)
+                    return 9692;
+                else if (fourDigits == 13)
+                    return 9731;
+                else if (fourDigits == 14)
+                    return 9751;
+                else if (fourDigits == 15)
+                    return 9761;
+                else if (fourDigits == 16)
+                    return 9781;
+                else if (fourDigits == 17)
+                    return 9811;
+                else if (fourDigits == 18)
+                    return 9861;
+                else if (fourDigits == 19)
+                    return 9881;
+                else
+                    return 9871;
+            }
         }
 
         private void enterButton_Click(object sender, EventArgs e)
@@ -1074,9 +1136,36 @@ namespace SupermarketCodeFlashCards
 
             //matchPin = getFinalPIN("");
             if (finalPIN == finalPINtoCheck)
+            {
                 correctLabel.Visible = true;
+               // recall();
+            }
             else
                 wrongLabel.Visible = true;
+
+            finalLabel.Text = finalPIN;
+            checkLabel.Text = finalPINtoCheck;
         }
+
+        private void hintButton_Click(object sender, EventArgs e)
+        {
+            if (finalLabel.Visible == false && checkLabel.Visible == false)
+            {
+                finalLabel.Visible = true;
+                checkLabel.Visible = true;
+            }
+            else
+            {
+                finalLabel.Visible = false;
+                checkLabel.Visible = false;
+            }
+
+        }
+
+        // Auto get new question
+        //public void recall()
+        //{
+        //    getButton_Click(new object(), new EventArgs());
+        //}
     }
 }

@@ -36,17 +36,18 @@
             // 
             // flashCardModeButton
             // 
-            this.flashCardModeButton.Location = new System.Drawing.Point(73, 72);
+            this.flashCardModeButton.Location = new System.Drawing.Point(221, 14);
             this.flashCardModeButton.Name = "flashCardModeButton";
-            this.flashCardModeButton.Size = new System.Drawing.Size(75, 50);
+            this.flashCardModeButton.Size = new System.Drawing.Size(75, 41);
             this.flashCardModeButton.TabIndex = 0;
             this.flashCardModeButton.Text = "Flash Card Mode";
             this.flashCardModeButton.UseVisualStyleBackColor = true;
+            this.flashCardModeButton.Visible = false;
             this.flashCardModeButton.Click += new System.EventHandler(this.flashCardModeButton_Click);
             // 
             // pinModeButton
             // 
-            this.pinModeButton.Location = new System.Drawing.Point(154, 72);
+            this.pinModeButton.Location = new System.Drawing.Point(73, 70);
             this.pinModeButton.Name = "pinModeButton";
             this.pinModeButton.Size = new System.Drawing.Size(75, 50);
             this.pinModeButton.TabIndex = 1;
@@ -56,7 +57,7 @@
             // 
             // quitButton
             // 
-            this.quitButton.Location = new System.Drawing.Point(235, 72);
+            this.quitButton.Location = new System.Drawing.Point(154, 70);
             this.quitButton.Name = "quitButton";
             this.quitButton.Size = new System.Drawing.Size(75, 50);
             this.quitButton.TabIndex = 2;
@@ -67,7 +68,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(151, 35);
+            this.label1.Location = new System.Drawing.Point(111, 42);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(81, 13);
             this.label1.TabIndex = 3;
@@ -77,7 +78,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(392, 172);
+            this.ClientSize = new System.Drawing.Size(311, 159);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.quitButton);
             this.Controls.Add(this.pinModeButton);

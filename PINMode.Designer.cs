@@ -42,13 +42,16 @@
             this.enterButton = new System.Windows.Forms.Button();
             this.clearButton = new System.Windows.Forms.Button();
             this.pinLabel = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox = new System.Windows.Forms.PictureBox();
             this.answerLabel = new System.Windows.Forms.Label();
             this.correctLabel = new System.Windows.Forms.Label();
             this.wrongLabel = new System.Windows.Forms.Label();
             this.quitButton = new System.Windows.Forms.Button();
             this.getButton = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.finalLabel = new System.Windows.Forms.Label();
+            this.checkLabel = new System.Windows.Forms.Label();
+            this.hintButton = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -189,13 +192,13 @@
             this.pinLabel.TabIndex = 13;
             this.pinLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // pictureBox1
+            // pictureBox
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(31, 83);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(183, 167);
-            this.pictureBox1.TabIndex = 14;
-            this.pictureBox1.TabStop = false;
+            this.pictureBox.Location = new System.Drawing.Point(31, 83);
+            this.pictureBox.Name = "pictureBox";
+            this.pictureBox.Size = new System.Drawing.Size(183, 167);
+            this.pictureBox.TabIndex = 14;
+            this.pictureBox.TabStop = false;
             // 
             // answerLabel
             // 
@@ -208,7 +211,7 @@
             // 
             // correctLabel
             // 
-            this.correctLabel.Location = new System.Drawing.Point(43, 274);
+            this.correctLabel.Location = new System.Drawing.Point(47, 262);
             this.correctLabel.Name = "correctLabel";
             this.correctLabel.Size = new System.Drawing.Size(155, 34);
             this.correctLabel.TabIndex = 16;
@@ -218,7 +221,7 @@
             // 
             // wrongLabel
             // 
-            this.wrongLabel.Location = new System.Drawing.Point(43, 274);
+            this.wrongLabel.Location = new System.Drawing.Point(47, 262);
             this.wrongLabel.Name = "wrongLabel";
             this.wrongLabel.Size = new System.Drawing.Size(155, 34);
             this.wrongLabel.TabIndex = 18;
@@ -228,9 +231,9 @@
             // 
             // quitButton
             // 
-            this.quitButton.Location = new System.Drawing.Point(351, 280);
+            this.quitButton.Location = new System.Drawing.Point(354, 308);
             this.quitButton.Name = "quitButton";
-            this.quitButton.Size = new System.Drawing.Size(75, 23);
+            this.quitButton.Size = new System.Drawing.Size(72, 34);
             this.quitButton.TabIndex = 19;
             this.quitButton.Text = "Quit";
             this.quitButton.UseVisualStyleBackColor = true;
@@ -238,25 +241,56 @@
             // 
             // getButton
             // 
-            this.getButton.Location = new System.Drawing.Point(270, 280);
+            this.getButton.Location = new System.Drawing.Point(270, 256);
             this.getButton.Name = "getButton";
-            this.getButton.Size = new System.Drawing.Size(75, 23);
+            this.getButton.Size = new System.Drawing.Size(156, 47);
             this.getButton.TabIndex = 20;
-            this.getButton.Text = "Get";
+            this.getButton.Text = "Next";
             this.getButton.UseVisualStyleBackColor = true;
             this.getButton.Click += new System.EventHandler(this.getButton_Click);
+            // 
+            // finalLabel
+            // 
+            this.finalLabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.finalLabel.Location = new System.Drawing.Point(31, 309);
+            this.finalLabel.Name = "finalLabel";
+            this.finalLabel.Size = new System.Drawing.Size(95, 34);
+            this.finalLabel.TabIndex = 21;
+            this.finalLabel.Visible = false;
+            // 
+            // checkLabel
+            // 
+            this.checkLabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.checkLabel.Location = new System.Drawing.Point(132, 309);
+            this.checkLabel.Name = "checkLabel";
+            this.checkLabel.Size = new System.Drawing.Size(100, 34);
+            this.checkLabel.TabIndex = 22;
+            this.checkLabel.Visible = false;
+            // 
+            // hintButton
+            // 
+            this.hintButton.Location = new System.Drawing.Point(270, 309);
+            this.hintButton.Name = "hintButton";
+            this.hintButton.Size = new System.Drawing.Size(72, 34);
+            this.hintButton.TabIndex = 23;
+            this.hintButton.Text = "Hint";
+            this.hintButton.UseVisualStyleBackColor = true;
+            this.hintButton.Click += new System.EventHandler(this.hintButton_Click);
             // 
             // PINMode
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(467, 339);
+            this.ClientSize = new System.Drawing.Size(467, 371);
+            this.Controls.Add(this.hintButton);
+            this.Controls.Add(this.checkLabel);
+            this.Controls.Add(this.finalLabel);
             this.Controls.Add(this.getButton);
             this.Controls.Add(this.quitButton);
             this.Controls.Add(this.wrongLabel);
             this.Controls.Add(this.correctLabel);
             this.Controls.Add(this.answerLabel);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.pictureBox);
             this.Controls.Add(this.pinLabel);
             this.Controls.Add(this.clearButton);
             this.Controls.Add(this.enterButton);
@@ -273,7 +307,7 @@
             this.Controls.Add(this.label1);
             this.Name = "PINMode";
             this.Text = "PINMode";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -295,11 +329,14 @@
         private System.Windows.Forms.Button enterButton;
         private System.Windows.Forms.Button clearButton;
         private System.Windows.Forms.Label pinLabel;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox;
         private System.Windows.Forms.Label answerLabel;
         private System.Windows.Forms.Label correctLabel;
         private System.Windows.Forms.Label wrongLabel;
         private System.Windows.Forms.Button quitButton;
         private System.Windows.Forms.Button getButton;
+        private System.Windows.Forms.Label finalLabel;
+        private System.Windows.Forms.Label checkLabel;
+        private System.Windows.Forms.Button hintButton;
     }
 }

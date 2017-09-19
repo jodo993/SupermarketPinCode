@@ -69,12 +69,13 @@
             this.nameTextBox.Name = "nameTextBox";
             this.nameTextBox.Size = new System.Drawing.Size(100, 20);
             this.nameTextBox.TabIndex = 3;
+            this.nameTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(342, 159);
+            this.ClientSize = new System.Drawing.Size(305, 159);
             this.Controls.Add(this.nameTextBox);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.quitButton);
